@@ -235,7 +235,7 @@ def configure
           })
         only_if { current['job_control'] == 'initd' }
       end
-      template "/etc/init/redis#{server_name}.conf" do
+      template "/etc/init/#{server_name}.conf" do
         source 'redis.upstart.conf.erb'
         cookbook 'redisio'
         owner current['user']
