@@ -27,7 +27,7 @@ action :run do
         server_name = server['name'] || server['port'] 
         execute "rm -rf /etc/redis/#{server_name}.conf" if ::File.exists?("/etc/redis/#{server_name}.conf")
         execute "rm -rf /etc/init.d/redis#{server_name}" if ::File.exists?("/etc/init.d/redis#{server_name}")
-        execute "rm -rf /etc/init/redis#{server_name}.conf" if ::File.exists?("/etc/init/redis#{server_name}.conf")
+        execute "rm -rf /etc/init/{server_name}.conf" if ::File.exists?("/etc/init/{server_name}.conf")
       end
     end
 end
